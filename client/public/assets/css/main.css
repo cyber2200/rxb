@@ -1,0 +1,31 @@
+.main-cont {
+  padding-top: 60px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.nav-item {
+  padding: 5px;
+}
+
+.margin-center {
+  margin: 0 auto;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.loader-div {
+    font-size: 30px;
+    text-align: center;
+}
+
+.loader-img {
+    max-width: 350px;
+}
+
+.div-rtl-cont {
+    direction: RTL;
+    text-align: right;
+}
