@@ -30,6 +30,7 @@ export const t = (ph) => {
         lang['page2secured'] = 'דף 2 מאובטח';
         lang['not_found'] = 'לא נמצא...';
         lang['lang_switched'] = 'שפה הוחלפה';
+        lang['connectivity_issues'] = 'נראה שיש בעית בחיבור';
         return lang[ph];
     } 
     
@@ -56,6 +57,7 @@ export const t = (ph) => {
         lang['page2secured'] = 'Page 2 secured';
         lang['not_found'] = 'Not found...';
         lang['lang_switched'] = 'Laguage Switched';
+        lang['connectivity_issues'] = 'Connectivity Issues';
         return lang[ph];
     }
 }

@@ -36,11 +36,11 @@ export const auth = () => {
     }))
     return fetchDataWrap(dispatch, "/api/auth", {})
     .then((data) => {
-        if (data.sessionId === "") {
+        if (data.sessionId === "" || data.msg === 'AJAX_ERROR') {
             dispatch(updateAuthStatus({
                 "status" : "no-session",
                 "role" : "",
-                "sessionId" : data.sessionId,
+                "sessionId" : "x",
                 "processing" : false
             }))
         } else {
