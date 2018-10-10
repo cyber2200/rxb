@@ -40,7 +40,7 @@ export const auth = () => {
             dispatch(updateAuthStatus({
                 "status" : "no-session",
                 "role" : "",
-                "sessionId" : "x",
+                "sessionId" : "",
                 "processing" : false
             }))
         } else {
