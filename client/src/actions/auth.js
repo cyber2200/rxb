@@ -1,4 +1,6 @@
 import {fetchDataWrap} from '../lib/req'
+import {updateSignupFormStatus} from './signup'
+import {updateLoginFormStatus} from './login'
 
 export const updateAuthStatus = (payload) => ({
   type: 'UPDATE_STATUS',
@@ -25,6 +27,12 @@ export const logout = () => {
     }
 }
 
+const eraseForms = (dispatch) => {
+   console.log("eraseForms") 
+   dispatch(updateSignupFormStatus({"status" : "", "errs" : []}))
+   dispatch(updateLoginFormStatus(""))
+}
+
 export const auth = () => {
   return dispatch => {
     dispatch(updateAuthStatus({
@@ -42,6 +50,7 @@ export const auth = () => {
                 "sessionId" : data.sessionId,
                 "processing" : false
             }))
+            eraseForms(dispatch);
         } else {
             dispatch(updateAuthStatus({
                 "status" : "secured",

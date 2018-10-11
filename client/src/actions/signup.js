@@ -21,20 +21,20 @@ export const updateFullNameInput = (payload) => {
   });
 }
 
-export const updateFormStatusInput = (payload) => ({
+export const updateSignupFormStatus = (payload) => ({
   type: 'SIGNUP_FORM_STAUS_UPDATE',
   payload
 })
 
 export const sendForm = (formData) => {
   return dispatch => {
-    dispatch(updateFormStatusInput({"status" : "PROCESSING", "errs" : []}))
+    dispatch(updateSignupFormStatus({"status" : "PROCESSING", "errs" : []}))
     return fetchDataWrap(dispatch, "/api/signup", formData, false)
     .then((data) => {
         if (data.errs.length === 0) {
-            dispatch(updateFormStatusInput({"status" : "OK", "errs" : []}))            
+            dispatch(updateSignupFormStatus({"status" : "OK", "errs" : []}))            
         } else {
-            dispatch(updateFormStatusInput({"status" : "NOK", "errs" : data.errs}))
+            dispatch(updateSignupFormStatus({"status" : "NOK", "errs" : data.errs}))
         }
     })
   }

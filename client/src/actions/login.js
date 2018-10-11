@@ -14,21 +14,21 @@ export const updatePasswordInput = (payload) => {
   });
 }
 
-export const updateFormStatusInput = (payload) => ({
+export const updateLoginFormStatus = (payload) => ({
   type: 'LOGIN_FORM_STAUS_UPDATE',
   payload
 })
 
 export const sendForm = (formData) => {
   return dispatch => {
-    dispatch(updateFormStatusInput(t("loading")))
+    dispatch(updateLoginFormStatus(t("loading")))
     return fetchDataWrap(dispatch, "/api/login", formData, false)
     .then((data) => {
          if (data.res === 'OK') {
-            dispatch(updateFormStatusInput("OK"))
+            dispatch(updateLoginFormStatus("OK"))
             dispatch(auth())
          } else {
-            dispatch(updateFormStatusInput(t("wrong_user_or_password")))
+            dispatch(updateLoginFormStatus(t("wrong_user_or_password")))
          }
     });
   }
