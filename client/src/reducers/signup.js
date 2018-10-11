@@ -31,7 +31,7 @@ const signupReducer = (state = defaultState, action) => {
         "password" : action.payload,
         "formStatus" : state.formStatus,
       })
-    case 'FORM_STAUS_UPDATE':
+    case 'SIGNUP_FORM_STAUS_UPDATE':
       return Object.assign({}, state, {
         "fullName" : state.fullName,
         "email" : state.email,

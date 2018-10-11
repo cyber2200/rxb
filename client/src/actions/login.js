@@ -15,7 +15,7 @@ export const updatePasswordInput = (payload) => {
 }
 
 export const updateFormStatusInput = (payload) => ({
-  type: 'FORM_STAUS_UPDATE',
+  type: 'LOGIN_FORM_STAUS_UPDATE',
   payload
 })
 

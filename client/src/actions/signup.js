@@ -22,7 +22,7 @@ export const updateFullNameInput = (payload) => {
 }
 
 export const updateFormStatusInput = (payload) => ({
-  type: 'FORM_STAUS_UPDATE',
+  type: 'SIGNUP_FORM_STAUS_UPDATE',
   payload
 })
 

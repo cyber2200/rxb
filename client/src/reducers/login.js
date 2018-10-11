@@ -18,7 +18,7 @@ const loginReducer = (state = defaultState, action) => {
         "password" : action.payload,
         "formStatus" : state.formStatus,
       })
-    case 'FORM_STAUS_UPDATE':
+    case 'LOGIN_FORM_STAUS_UPDATE':
       return Object.assign({}, state, {
         "email" : state.email,
         "password" : state.password,
