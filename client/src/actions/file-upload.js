@@ -12,7 +12,7 @@ export const fetchData = (dispatch, url, reqObj) => {
     dispatch(updateFileFeeder("Done"))
   })
   .catch(() => {
-    console.log("!!!");
+      
   })
 }
 

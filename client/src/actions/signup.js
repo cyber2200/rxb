@@ -28,11 +28,14 @@ export const updateFormStatusInput = (payload) => ({
 
 export const sendForm = (formData) => {
   return dispatch => {
-    dispatch(updateFormStatusInput([]))
+    dispatch(updateFormStatusInput({"status" : "PROCESSING", "errs" : []}))
     return fetchDataWrap(dispatch, "/api/signup", formData, false)
     .then((data) => {
-        console.log(data.errs)
-        dispatch(updateFormStatusInput(data.errs))
+        if (data.errs.length === 0) {
+            dispatch(updateFormStatusInput({"status" : "OK", "errs" : []}))            
+        } else {
+            dispatch(updateFormStatusInput({"status" : "NOK", "errs" : data.errs}))
+        }
     })
   }
 }

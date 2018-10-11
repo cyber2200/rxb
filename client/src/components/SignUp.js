@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {updateEmailInput, updatePasswordInput, sendForm, updateFullNameInput} from '../actions/signup'
+import {Redirect} from 'react-router-dom'
 import {t} from '../trans/t'
 
 class SignUp extends Component {
@@ -29,6 +30,15 @@ class SignUp extends Component {
   }
   
   render() {
+    var statusDisplay = '';
+    if (this.props.state.signup.formStatus.status === 'PROCESSING') {
+        statusDisplay = t('processing');
+    } else if (this.props.state.signup.formStatus.status === 'OK') {
+        return(
+            <Redirect to="/secured" />
+        )
+    }
+    
     return(
       <div className="main-cont">
         <div className="col-md-4 margin-center text-center">
@@ -40,8 +50,10 @@ class SignUp extends Component {
             {t('password')}:<br />
             <input type="password" className="form-control" onChange={this.passwordChanged} /><br />
             <div>
-                {this.props.state.signup.formStatus.map((v, i) => {
-                    console.log(v)
+                {statusDisplay}
+            </div>
+            <div>
+                {this.props.state.signup.formStatus.errs.map((v, i) => {
                     return (
                         <div key={i}>
                             {t(v.msg)}

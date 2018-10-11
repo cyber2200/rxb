@@ -2,7 +2,10 @@ const defaultState = {
   "fullName" : "",
   "email" : "",
   "password" : "",
-  "formStatus" : [],
+  "formStatus" : {
+      "status" : "",
+      "errs" : []
+  },
 }
 
 const signupReducer = (state = defaultState, action) => {

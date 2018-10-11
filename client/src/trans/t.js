@@ -33,6 +33,8 @@ export const t = (ph) => {
         lang['email_not_valid'] = 'כתובת דוא"ל לא תקינה';
         lang['password_is_too_short'] = 'סיסמה קצרה מדי';
         lang['no_full_name'] = 'לא הוזן שם מלא';
+        lang['processing'] = 'מעבד נתונים...';
+        lang['email_already_taken'] = 'כתובת הדוא"ל כבר תפוסה';
         return lang[ph];
     } 
     
@@ -62,6 +64,8 @@ export const t = (ph) => {
         lang['email_not_valid'] = 'Email address is not valid';
         lang['password_is_too_short'] = 'Password is too weak';
         lang['no_full_name'] = 'Please enter full name';
+        lang['processing'] = 'Processing...';
+        lang['email_already_taken'] = 'Email already taken';
         return lang[ph];
     }
 }

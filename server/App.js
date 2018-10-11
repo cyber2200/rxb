@@ -31,6 +31,10 @@ app.post('/api/login', async function(req, res) {
 
 app.post('/api/signup', async function(req, res) {
     var ret = await auth.signup(req);
+    if (ret.res === 'OK') {
+        auth.createCookies(req, res);
+        var p1 = await auth.login(req);        
+    }
     res.send(JSON.stringify(ret));
 });
 

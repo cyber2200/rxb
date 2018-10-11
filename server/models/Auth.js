@@ -27,9 +27,9 @@ class Auth {
         return new Promise(function(resolve, reject) {
             dbc.collection("users").insertOne(userObj, function(err, res) {
                 if (err) {
-                    resolve({"res" : "NOK"}); 
+                    resolve({"res" : "NOK", "errs" : []}); 
                 }
-                resolve({"res" : "OK"}); 
+                resolve({"res" : "OK", "errs" : []}); 
             });  
         });
     }
@@ -140,7 +140,7 @@ class Auth {
         
         let ret = await this.isEmailAvailableDb(dbc, reqData);
         if (! ret) {
-            return {"res" : "NOK"}
+            return {"res" : "NOK", "errs" : [{"msg" : "email_already_taken"}]}
         }
         
         ret = await this.signupDb(dbc, reqData);
