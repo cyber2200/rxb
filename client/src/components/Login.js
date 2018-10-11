@@ -38,13 +38,13 @@ class Login extends Component {
         return(
           <div className="main-cont">
             <div className="col-md-4 margin-center text-center">
-              <div>
+              <div className="signup-div">
                 <Link to="/signup">{t('signup')}</Link>
               </div>
               <form onSubmit={this.formHandler}>
-                {t('email')}:<br />
+                {t('email')}<br />
                 <input type="text" className="form-control" onChange={this.emailChanged} value={this.props.state.login.email} /><br />
-                {t('password')}:<br />
+                {t('password')}<br />
                 <input type="password" className="form-control" onChange={this.passwordChanged} value={this.props.state.login.password} /><br />
                 <div>{statusDisplay}</div>
                 <div>
