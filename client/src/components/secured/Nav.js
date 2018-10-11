@@ -6,7 +6,7 @@ const Nav = () => {
     return(
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link className="navbar-brand" to="/">Boilerplate</Link>
+                <Link className="navbar-brand" to="/secured">Boilerplate</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"/>
                 </button>

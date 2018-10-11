@@ -27,7 +27,6 @@ export const sendForm = (formData) => {
             dispatch(updateLoginFormStatus({"status" : "OK", "errs" : []}))
             dispatch(auth())
          } else {
-             console.log(data)
             if (Array.isArray(data.errs)) {
                 dispatch(updateLoginFormStatus({"status" : "NOK", "errs" : data.errs}))                
             } else {

@@ -13,9 +13,6 @@ const Nav = () => {
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item active">
-                            <Link className="nav-link" to="/">{t("home", "en")}</Link>
-                        </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle clickable"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {t('language')}
@@ -26,10 +23,10 @@ const Nav = () => {
                             </div>
                         </li>
                         <li className="nav-item active">
-                            <Link className="nav-link" to="/page1">{t("page1", "en")}</Link>
+                            <Link className="nav-link" to="/signup">{t("signup")}</Link>
                         </li>
                         <li className="nav-item active">
-                            <Link className="nav-link" to="/secured">{t("login", "en")}</Link>
+                            <Link className="nav-link" to="/secured">{t("login")}</Link>
                         </li>
                     </ul>
                 </div>

@@ -11,13 +11,13 @@ class Logout extends Component {
     componentWillMount() {
         if (! this.props.auth.processing) {
             this.setState({"loaded" : true})
-            this.props.dispatch(logout())        
+            this.props.dispatch(logout())
         }
     }
     
     render() {
         return(
-            <Redirect to='/login' />        
+            <Redirect to='/' />        
         )
     }
 }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {updateEmailInput, updatePasswordInput, sendForm, updateFullNameInput} from '../actions/signup'
+import {auth} from '../actions/auth'
 import {Redirect} from 'react-router-dom'
 import {t} from '../trans/t'
 
@@ -34,6 +35,7 @@ class SignUp extends Component {
     if (this.props.state.signup.formStatus.status === 'PROCESSING') {
         statusDisplay = t('processing');
     } else if (this.props.state.signup.formStatus.status === 'OK') {
+        this.props.dispatch(auth())
         return(
             <Redirect to="/secured" />
         )
@@ -44,11 +46,11 @@ class SignUp extends Component {
         <div className="col-md-4 margin-center text-center">
           <form onSubmit={this.formHandler}>
             {t('full_name')}:<br />
-            <input type="text" className="form-control" onChange={this.fullNameChanged} /><br />
+            <input type="text" className="form-control" onChange={this.fullNameChanged} value={this.props.state.signup.fullName} /><br />
             {t('email')}:<br />
-            <input type="text" className="form-control" onChange={this.emailChanged} /><br />
+            <input type="text" className="form-control" onChange={this.emailChanged} value={this.props.state.signup.email} /><br />
             {t('password')}:<br />
-            <input type="password" className="form-control" onChange={this.passwordChanged} /><br />
+            <input type="password" className="form-control" onChange={this.passwordChanged} value={this.props.state.signup.password} /><br />
             <div>
                 {statusDisplay}
             </div>

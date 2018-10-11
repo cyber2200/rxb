@@ -18,6 +18,7 @@ export const logout = () => {
         }))
         fetchDataWrap(dispatch, "/api/logout", {})
         .then((data) => {
+            dispatch(auth())
             dispatch(updateAuthStatus({
                 "status" : "no-session",
                 "role" : "",
