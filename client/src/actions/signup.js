@@ -1,20 +1,20 @@
 import {fetchDataWrap} from '../lib/req'
 
-export const updateEmailInput = (payload) => {
+export const updateSignupEmailInput = (payload) => {
   return({
     type: 'SIGNUP_EMAIL_INPUT',
     payload
   });
 }
 
-export const updatePasswordInput = (payload) => {
+export const updateSignupPasswordInput = (payload) => {
   return({
     type: 'SIGNUP_PASSWORD_INPUT',
     payload    
   });
 }
 
-export const updateFullNameInput = (payload) => {
+export const updateSignupFullNameInput = (payload) => {
   return({
     type: 'SIGNUP_FULLNAME_INPUT',
     payload    

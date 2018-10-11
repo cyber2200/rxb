@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {updateEmailInput, updatePasswordInput, sendForm} from '../actions/login'
+import {updateLoginEmailInput, updateLoginPasswordInput, sendForm} from '../actions/login'
 import {Redirect, Link} from 'react-router-dom'
 import {t} from '../trans/t'
 
@@ -17,11 +17,11 @@ class Login extends Component {
   }
   
   emailChanged(e) {
-    this.props.dispatch(updateEmailInput(e.target.value));
+    this.props.dispatch(updateLoginEmailInput(e.target.value));
   }
   
   passwordChanged(e) {
-    this.props.dispatch(updatePasswordInput(e.target.value));
+    this.props.dispatch(updateLoginPasswordInput(e.target.value));
   }
   
   render() {

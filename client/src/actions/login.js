@@ -1,12 +1,12 @@
 import {fetchDataWrap} from '../lib/req'
 import {auth} from '../actions/auth'
 
-export const updateEmailInput = (payload) => ({
+export const updateLoginEmailInput = (payload) => ({
   type: 'EMAIL_INPUT',
   payload
 })
 
-export const updatePasswordInput = (payload) => {
+export const updateLoginPasswordInput = (payload) => {
   return({
     type: 'PASSWORD_INPUT',
     payload    

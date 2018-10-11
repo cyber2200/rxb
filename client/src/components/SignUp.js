@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {updateEmailInput, updatePasswordInput, sendForm, updateFullNameInput} from '../actions/signup'
+import {updateSignupEmailInput, updateSignupPasswordInput, updateSignupFullNameInput, sendForm} from '../actions/signup'
 import {auth} from '../actions/auth'
 import {Redirect} from 'react-router-dom'
 import {t} from '../trans/t'
@@ -19,15 +19,15 @@ class SignUp extends Component {
   }
   
   emailChanged(e) {
-    this.props.dispatch(updateEmailInput(e.target.value));
+    this.props.dispatch(updateSignupEmailInput(e.target.value));
   }
   
   passwordChanged(e) {
-    this.props.dispatch(updatePasswordInput(e.target.value));
+    this.props.dispatch(updateSignupPasswordInput(e.target.value));
   }
   
   fullNameChanged(e) {
-    this.props.dispatch(updateFullNameInput(e.target.value));      
+    this.props.dispatch(updateSignupFullNameInput(e.target.value));      
   }
   
   render() {
