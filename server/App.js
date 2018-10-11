@@ -38,14 +38,9 @@ app.post('/api/signup', async function(req, res) {
     res.send(JSON.stringify(ret));
 });
 
-wait = (ms) => {
-  return new Promise(r => setTimeout(r, ms));
-}
-
 app.post('/api/auth', async function(req, res) {
     auth.createCookies(req, res);
     var ret = await auth.validate();
-    await wait(1000);
     res.send(JSON.stringify(ret));
 });
 
