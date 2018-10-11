@@ -1,7 +1,10 @@
 const defaultState = {
   "email" : "",
   "password" : "",
-  "formStatus" : "",
+  "formStatus" : {
+      "status" : "",
+      "errs" : []
+  },
 }
 
 const loginReducer = (state = defaultState, action) => {

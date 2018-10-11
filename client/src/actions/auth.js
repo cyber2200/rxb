@@ -1,6 +1,7 @@
 import {fetchDataWrap} from '../lib/req'
 import {updateSignupFormStatus} from './signup'
 import {updateLoginFormStatus} from './login'
+import {updateEmailInput, updatePasswordInput} from './login'
 
 export const updateAuthStatus = (payload) => ({
   type: 'UPDATE_STATUS',
@@ -28,9 +29,10 @@ export const logout = () => {
 }
 
 const eraseForms = (dispatch) => {
-   console.log("eraseForms") 
    dispatch(updateSignupFormStatus({"status" : "", "errs" : []}))
-   dispatch(updateLoginFormStatus(""))
+   dispatch(updateLoginFormStatus({"status" : "", "errs" : []}))
+   dispatch(updateEmailInput(""))
+   dispatch(updatePasswordInput(""))
 }
 
 export const auth = () => {

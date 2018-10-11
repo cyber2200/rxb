@@ -35,6 +35,7 @@ export const t = (ph) => {
         lang['no_full_name'] = 'לא הוזן שם מלא';
         lang['processing'] = 'מעבד נתונים...';
         lang['email_already_taken'] = 'כתובת הדוא"ל כבר תפוסה';
+        lang['server_error'] = 'התרחשה תקלה זמנית';
         return lang[ph];
     } 
     
@@ -66,6 +67,7 @@ export const t = (ph) => {
         lang['no_full_name'] = 'Please enter full name';
         lang['processing'] = 'Processing...';
         lang['email_already_taken'] = 'Email already taken';
+        lang['server_error'] = 'Temporary error';
         return lang[ph];
     }
 }

@@ -15,7 +15,13 @@ export const fetchDataWrap = async (dispatch, url, reqObj, showPageLoader = true
     method: "POST",
     body: JSON.stringify(reqObj)
   })
-  .then(response => response.json())
+  .then(response => {
+      if (response.status === 500) {
+          return {"res" : "NOK", "errs" : [{"msg" : "server_error"}]}
+      } else {
+        return response.json()                    
+      }
+  })
   .then(json => {
       if (showPageLoader) {
         dispatch(updateLoaderStatus({

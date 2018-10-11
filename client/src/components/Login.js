@@ -25,7 +25,12 @@ class Login extends Component {
   }
   
   render() {
-    if (this.props.state.login.formStatus === 'OK' && this.props.state.auth.sessionId !== '') {
+    var statusDisplay = '';
+    if (this.props.state.login.formStatus.status === 'PROCESSING') {
+        statusDisplay = t('processing')
+    }
+    
+    if (this.props.state.login.formStatus.status === 'OK' && this.props.state.auth.sessionId !== '') {
         return (
             <Redirect to='/secured' />
         )
@@ -41,7 +46,16 @@ class Login extends Component {
                 <input type="text" className="form-control" onChange={this.emailChanged} value={this.props.state.login.email} /><br />
                 {t('password')}:<br />
                 <input type="password" className="form-control" onChange={this.passwordChanged} value={this.props.state.login.password} /><br />
-                <div>{this.props.state.login.formStatus}</div>
+                <div>{statusDisplay}</div>
+                <div>
+                    {this.props.state.login.formStatus.errs.map((v, i) => {
+                        return (
+                            <div key={i}>
+                                {t(v.msg)}
+                            </div>
+                        )
+                    })}
+                </div>
                 <input type="submit" className="btn" value={t('login_submit')} />
               </form>
             </div>

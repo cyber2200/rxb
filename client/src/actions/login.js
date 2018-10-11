@@ -1,6 +1,5 @@
 import {fetchDataWrap} from '../lib/req'
 import {auth} from '../actions/auth'
-import {t} from '../trans/t'
 
 export const updateEmailInput = (payload) => ({
   type: 'EMAIL_INPUT',
@@ -21,14 +20,19 @@ export const updateLoginFormStatus = (payload) => ({
 
 export const sendForm = (formData) => {
   return dispatch => {
-    dispatch(updateLoginFormStatus(t("loading")))
+    dispatch(updateLoginFormStatus({"status" : "PROCESSING", "errs" : []}))
     return fetchDataWrap(dispatch, "/api/login", formData, false)
     .then((data) => {
          if (data.res === 'OK') {
-            dispatch(updateLoginFormStatus("OK"))
+            dispatch(updateLoginFormStatus({"status" : "OK", "errs" : []}))
             dispatch(auth())
          } else {
-            dispatch(updateLoginFormStatus(t("wrong_user_or_password")))
+             console.log(data)
+            if (Array.isArray(data.errs)) {
+                dispatch(updateLoginFormStatus({"status" : "NOK", "errs" : data.errs}))                
+            } else {
+                dispatch(updateLoginFormStatus(data))
+            }
          }
     });
   }

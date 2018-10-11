@@ -54,9 +54,9 @@ class Auth {
                 }
                 
                 if (result.length === 0) {
-                    resolve({"res" : "NOK", "userData" : {}}); 
+                    resolve({"res" : "NOK", "userData" : {}, "errs" : [{"msg" : "wrong_user_or_password"}]}); 
                 } else {
-                    resolve({"res" : "OK", "userData" : result[0]});  
+                    resolve({"res" : "OK", "userData" : result[0], "errs" : []});  
                 }
             });
         });
@@ -98,7 +98,7 @@ class Auth {
     
     async login(req) {
         if (req.body.email === '' || req.body.password === '') {
-            return {"res" : "NOK", "userData" : {}};
+            return {"res" : "NOK", "userData" : {}, "errs" : [{"msg" : "wrong_user_or_password"}]};
         }
         let dbc = await this.db.getDb();
         let ret = await this.checkUserDb(dbc, {"email" : req.body.email, "password" : this.md5(req.body.password)});
