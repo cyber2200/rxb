@@ -30,7 +30,9 @@ export const t = (ph) => {
         lang['page2secured'] = 'דף 2 מאובטח';
         lang['not_found'] = 'לא נמצא...';
         lang['lang_switched'] = 'שפה הוחלפה';
-        lang['connectivity_issues'] = 'נראה שיש בעית בחיבור';
+        lang['email_not_valid'] = 'כתובת דוא"ל לא תקינה';
+        lang['password_is_too_short'] = 'סיסמה קצרה מדי';
+        lang['no_full_name'] = 'לא הוזן שם מלא';
         return lang[ph];
     } 
     
@@ -57,7 +59,9 @@ export const t = (ph) => {
         lang['page2secured'] = 'Page 2 secured';
         lang['not_found'] = 'Not found...';
         lang['lang_switched'] = 'Laguage Switched';
-        lang['connectivity_issues'] = 'Connectivity Issues';
+        lang['email_not_valid'] = 'Email address is not valid';
+        lang['password_is_too_short'] = 'Password is too weak';
+        lang['no_full_name'] = 'Please enter full name';
         return lang[ph];
     }
 }

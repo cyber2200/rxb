@@ -10,6 +10,19 @@ class Auth {
         this.cookies = new Cookies(req, res, { keys: keys })
     }
     
+    isEmailAvailableDb(dbc, userObj) {
+        return new Promise(function(resolve, reject) {
+            dbc.collection("users").find({"email" : userObj.email}).toArray(
+                (err, res) => {
+                    if (res.length === 0) {
+                        resolve(true)                        
+                    } 
+                    resolve(false)
+                }
+            )
+        });        
+    }
+    
     signupDb(dbc, userObj) {
         return new Promise(function(resolve, reject) {
             dbc.collection("users").insertOne(userObj, function(err, res) {
@@ -99,9 +112,38 @@ class Auth {
         return ret;
     }
     
-    async signup(req) {    
-        let dbc = await this.db.getDb();
-        let ret = await this.signupDb(dbc, {"email" : req.body.email, "password" : this.md5(req.body.password), "fullName" : req.body.fullName});
+    async signup(req) {
+        let dbc = await this.db.getDb()
+        
+        let reqData = {
+            "email" : req.body.email,
+            "password" : this.md5(req.body.password),
+            "fullName" : req.body.fullName
+        };
+        
+        // Very Basic Validation
+        let errs = [];
+        let re = /\S+@\S+\.\S+/;
+        if (! re.test(req.body.email)) {
+            errs.push({"msg" : "email_not_valid"});
+        }
+        if (req.body.password.length < 4) {
+            errs.push({"msg" : "password_is_too_short"});
+        }
+        if (req.body.fullName.length === 0) {
+            errs.push({"msg" : "no_full_name"});
+        }
+        if (errs.length !== 0) {
+            return {"res" : "NOK", "errs" : errs}
+        }
+        
+        
+        let ret = await this.isEmailAvailableDb(dbc, reqData);
+        if (! ret) {
+            return {"res" : "NOK"}
+        }
+        
+        ret = await this.signupDb(dbc, reqData);
         return ret;
     }
     

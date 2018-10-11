@@ -27,10 +27,8 @@ export const sendForm = (formData) => {
          if (data.res === 'OK') {
             dispatch(updateFormStatusInput("OK"))
             dispatch(auth())
-         } else if (data.res === 'NOK') {
-             dispatch(updateFormStatusInput(t("wrong_user_or_password")))
          } else {
-            dispatch(updateFormStatusInput(t("connectivity_issues")))
+            dispatch(updateFormStatusInput(t("wrong_user_or_password")))
          }
     });
   }

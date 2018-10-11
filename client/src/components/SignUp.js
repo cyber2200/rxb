@@ -13,7 +13,6 @@ class SignUp extends Component {
   
   formHandler(e) {
     this.props.dispatch(sendForm(this.props.state.signup));
-    console.log(this.props.state.signup);
     e.preventDefault();
   }
   
@@ -40,7 +39,16 @@ class SignUp extends Component {
             <input type="text" className="form-control" onChange={this.emailChanged} /><br />
             {t('password')}:<br />
             <input type="password" className="form-control" onChange={this.passwordChanged} /><br />
-            <div>{this.props.state.signup.formStatus}</div>
+            <div>
+                {this.props.state.signup.formStatus.map((v, i) => {
+                    console.log(v)
+                    return (
+                        <div key={i}>
+                            {t(v.msg)}
+                        </div>
+                    )
+                })}
+            </div>
             <input type="submit" className="btn" value={t('submit_signup')} />
           </form>
         </div>

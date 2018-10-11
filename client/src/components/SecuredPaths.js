@@ -16,7 +16,6 @@ class SecuredPaths extends Component {
     }
     
     render() {
-        console.log(this.props.auth);
         if (this.props.auth.processing || this.props.auth.status === '') {
             return(
                 <div>Loading...</div>
