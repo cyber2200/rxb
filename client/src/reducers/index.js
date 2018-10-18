@@ -5,6 +5,7 @@ import fileUploader from './fileUploader'
 import authReducer from './auth'
 import langReducer from './lang'
 import loaderReducer from './loader'
+import menu from './menu/menu'
 
 const rootReducer = combineReducers({
   fileUploader: fileUploader,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   signup: signupReducer,
   auth: authReducer,
   lang: langReducer,
-  loader: loaderReducer
+  loader: loaderReducer,
+  menu : menu
 })
 
 export default rootReducer

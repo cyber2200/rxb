@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import PathRoutes from './PathRoutes'
+import PathRoutes from '../containers/PathRoutes'
 
 class Paths extends Component {
     render() {

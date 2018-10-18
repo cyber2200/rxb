@@ -33,3 +33,41 @@
 .signup-div {
     padding-bottom: 30px;
 }
+
+.desktop-menu-item {
+    display: inline-block;
+    padding: 15px;
+}
+
+.desktop-menu-div {
+    background-color: #e2e2e2;
+}
+
+.link-style {
+    color: #007c89 !important;
+    cursor: pointer;
+    font-family: Helvetica Neue,Helvetica,Arial,Verdana,sans-serif;
+}
+
+.link-style:hover{
+    color: #007c89 !important;
+    text-decoration: underline !important;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 115px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-inner {
+    padding: 20px;
+}

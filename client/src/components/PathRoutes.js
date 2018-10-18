@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import Nav from './Nav'
 import { Route, Switch } from 'react-router'
+
+import Nav from './../containers/Nav'
 import Home from '../containers/Home'
 import Login from '../containers/Login'
 import SignUp from '../containers/SignUp'
